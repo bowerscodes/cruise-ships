@@ -1,7 +1,7 @@
-const Port = require('../src/ship')
+const Ship = require('../src/ship')
 
 describe('constructor', () => {
-    it("constructs a new starting port object", () => {
-        expect(new Port('Portsmouth')).toBeInstanceOf(Object);
+    it("constructs a new Ship object with a name and starting port", () => {
+        expect(new Ship('Titanic', 'Portsmouth')).toBeInstanceOf(Object);
     });
 });

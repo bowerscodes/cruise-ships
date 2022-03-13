@@ -1,7 +1,8 @@
-function Port(name) {
+function Ship(name, startingPort) {
     this.name = name;
+    this.startingPort = startingPort;
     this.passengers = [];
 
-    
-}
-module.exports = Port
+};
+
+module.exports = Ship
