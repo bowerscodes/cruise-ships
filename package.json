@@ -1,0 +1,22 @@
+{
+  "name": "cruise-ships",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bowerscodes/cruise-ships.git"
+  },
+  "author": "James Bowers",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bowerscodes/cruise-ships/issues"
+  },
+  "homepage": "https://github.com/bowerscodes/cruise-ships#readme",
+  "dependencies": {
+    "jest": "^27.5.1"
+  }
+}
