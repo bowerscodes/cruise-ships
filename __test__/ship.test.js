@@ -1,11 +1,11 @@
 const Ship = require('../src/ship')
 
-describe('constructor', () => {
-    it("constructs a new Ship object with a name and starting port", () => {
-        expect(new Ship('Titanic', 'Portsmouth')).toBeInstanceOf(Object);
+describe('ship', () => {
+    it("can be instantiated", () => {
+        expect(new Ship()).toBeInstanceOf(Object);
     });
     it("has a starting port", () => {
-        const ship = new Ship('Titanic', 'Portsmouth');
+        const ship = new Ship('Portsmouth');
 
         expect(ship.startingPort).toBe('Portsmouth');
     });

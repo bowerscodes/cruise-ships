@@ -1,5 +1,4 @@
-function Ship(name, startingPort) {
-    this.name = name;
+function Ship(startingPort) {
     this.startingPort = startingPort;
     this.passengers = [];
 
