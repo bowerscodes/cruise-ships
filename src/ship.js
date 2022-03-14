@@ -5,4 +5,8 @@ function Ship(name, startingPort) {
 
 };
 
+Ship.prototype.setSail = function() {
+    
+};
+
 module.exports = Ship
