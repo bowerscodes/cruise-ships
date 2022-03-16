@@ -7,7 +7,13 @@ describe('Constructor', () => {
     });
     it('has a starting port', () => {
         const ship = new Ship('Portsmouth');
-        expect(ship.startingPort).toEqual('Portsmouth');
+        expect(ship.startingPort).toBe('Portsmouth');
     });
+    it('can set sail', () => {
+        const ship = new Ship('Portsmouth');
 
+        ship.setSail();
+        
+        expect(ship.startingPort).toBeFalsy();
+    })
 })
