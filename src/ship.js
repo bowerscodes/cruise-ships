@@ -1,11 +1,30 @@
-function Ship(startingPort) {
-    this.startingPort = startingPort;
-    this.passengers = [];
+// class Ship {
+//     constructor(startingPort) {
+//         this.port = startingPort;
+//         this.currentPort = port;
+//         this.passengers = [];
+//     }
+//     dock(port) {
+//         this.currentPort = port;
+//     }
+//     setSail() {
+//         this.port = false;
+//     }
 
-};
+// };
+
+function Ship(startingPort) {
+    this.port = startingPort;
+    this.currentPort = port;
+    this.passengers = [];
+}
 
 Ship.prototype.setSail = function() {
-    
+    this.port = false;
 };
 
-module.exports = Ship
+Ship.prototype.dock = function() {
+    this.port = port
+}
+
+module.exports = Ship;
