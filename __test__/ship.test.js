@@ -12,7 +12,7 @@ describe('Constructor', () => {
     });
     it('gets added to a port upon being instantiated', () => {
         const portsmouth = new Port('Portsmouth');
-        const itinerary = new Itinerary(portsmouth);
+        const itinerary = new Itinerary([portsmouth]);
         const ship = new Ship(itinerary);
 
         expect(portsmouth.ships).toContain(ship);

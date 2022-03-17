@@ -9,8 +9,7 @@ class Port {
     };
     removeShip(ship) {
         this.ships.splice(this.ships.indexOf(ship), 1);
-        
-    }
+    };
 };
 
 
