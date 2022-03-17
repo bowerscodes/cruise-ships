@@ -16,6 +16,8 @@ class Ship {
         }
         this.previousPort = this.currentPort;
         this.currentPort = null;
+        // Code to remove ship - failing:
+        this.port.removeShip(this)
     };
 
     dock() {
@@ -23,6 +25,7 @@ class Ship {
         const previousPortIndex = itinerary.ports.indexOf(this.previousPort);
 
         this.currentPort = itinerary.ports[previousPortIndex + 1];
+        this.currentPort.addShip.bind(this);
     };
 };
 
