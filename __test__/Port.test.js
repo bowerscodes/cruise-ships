@@ -11,7 +11,25 @@ describe('port', () => {
         const port = new Port('Belfast');
 
         expect(port.name).toBe('Belfast');
-    })
-})
+    });
+    it('can add ships', () => {
+        const port = new Port('Belfast');
+        const ship = {};
 
-module.exports = Port;
+        port.addShip(ship);
+
+        expect(port.ships).toContain(ship);
+    });
+    it('can remove ships', () => {
+        const port = new Port('Belfast');
+        const titanic = {};
+        const maryRose = {};
+
+        port.addShip(titanic);
+        port.addShip(maryRose);
+        port.removeShip(maryRose);
+
+        expect(port.ships).toEqual([titanic]);
+
+    });
+});
