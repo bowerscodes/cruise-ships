@@ -1,6 +1,6 @@
 const Ship = require('../src/Ship')
-const Port = require('../src/Port')
-const Itinerary = require('../src/Itinerary')
+// const Port = require('../src/Port')
+// const Itinerary = require('../src/Itinerary')
 
 describe('Ship constructor', () => {
     describe('with ports and an itnerary', () => {
@@ -21,9 +21,13 @@ describe('Ship constructor', () => {
                 ships: []
             };
 
-            itinerary = new Itinerary([portsmouth, iow]);
+            itinerary = {
+                ports: [portsmouth, iow],
+            };
+
             ship = new Ship(itinerary);      
         });
+        
         it('can be instantiated', () => {
             expect(ship).toBeInstanceOf(Object);
         });
