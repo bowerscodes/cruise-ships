@@ -50,9 +50,4 @@ describe('Ship constructor', () => {
             expect(() => ship.setSail()).toThrowError('End of itinerary reached');
         });
     });    
-
-    
-
-    
-
 });
