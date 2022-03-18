@@ -8,8 +8,8 @@ describe('Itinerary', () => {
         expect(new Itinerary()).toBeInstanceOf(Itinerary);
     });
     it('has a "ports" property', () => {
-        const portsmouth = new Port("Portsmouth");
-        const iow = new Port('Isle of Wight');
+        const portsmouth = jest.fn();
+        const iow = jest.fn();
 
         const itinerary = new Itinerary([portsmouth, iow]);
         expect(itinerary.ports).toEqual([portsmouth, iow]);
