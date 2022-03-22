@@ -42,7 +42,7 @@
         }
 
         renderShip() {
-            const  ship = this.ship
+            const ship = this.ship
 
             const shipPortIndex = ship.itinerary.ports.indexOf(ship.currentPort);
             const portElement = document.querySelector(`[data-port-index='${shipPortIndex}']`);
@@ -58,7 +58,7 @@
 
             const currentPortIndex = ship.itinerary.ports.indexOf(ship.currentPort);
             const nextPortIndex = currentPortIndex + 1;
-            const nextPortElement = document.querySelector(`[data-port-index='${nextPortIndex}]`);
+            const nextPortElement = document.querySelector(`[data-port-index='${nextPortIndex}']`);
             if (!nextPortElement) {
                 this.renderMessage('End of the Line!')
             }
@@ -66,8 +66,9 @@
             this.renderMessage();
 
             const shipElement = document.querySelector('#ship');
-            const sailInterval = sailInterval(() => {
+            const sailInterval = setInterval(() => {
                 const shipLeft = parseInt(shipElement.style.left, 10);
+                console.log(nextPortElement);
                 if (shipLeft === (nextPortElement.offsetLeft - 32)) {
                     ship.setSail();
                     ship.dock();
