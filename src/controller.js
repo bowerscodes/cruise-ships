@@ -57,18 +57,20 @@
             const ship = this.ship
 
             const currentPortIndex = ship.itinerary.ports.indexOf(ship.currentPort);
+            const currentPortName = ship.itinerary.ports[currentPortIndex].name;
+
             const nextPortIndex = currentPortIndex + 1;
             const nextPortElement = document.querySelector(`[data-port-index='${nextPortIndex}']`);
+            
             if (!nextPortElement) {
-                this.renderMessage('End of the Line!')
+                this.renderMessage('End of the Line!');
             }
 
-            this.renderMessage();
+            this.renderMessage(`Now departing ${currentPortName}`);
 
             const shipElement = document.querySelector('#ship');
             const sailInterval = setInterval(() => {
                 const shipLeft = parseInt(shipElement.style.left, 10);
-                console.log(nextPortElement);
                 if (shipLeft === (nextPortElement.offsetLeft - 32)) {
                     ship.setSail();
                     ship.dock();
@@ -80,13 +82,12 @@
 
         renderMessage(message) {
             const newMessage = document.createElement('div');
-            newMessage.setAttribute('id', 'message');
+            newMessage.id = 'message';
             newMessage.innerHTML = message;
         
-            viewport.appendChild(newMessage);
+            document.querySelector('#viewport').appendChild(newMessage);
 
-            setTimeout(viewport.removeChild(newMessage), 2000);
-            // }, 2000)
+            document.querySelector('#viewport').removeChild((newMessage), 2000);
         }
     };
 
