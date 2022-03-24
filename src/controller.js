@@ -84,11 +84,18 @@
             const newMessage = document.createElement('div');
             newMessage.id = 'message';
             newMessage.innerHTML = message;
-        
-            document.querySelector('#viewport').appendChild(newMessage);
 
-            document.querySelector('#viewport').removeChild((newMessage), 2000);
+            const removeMessage = viewport.removeChild(newMessage);
+        
+            
+
+            viewport.appendChild(newMessage);
+            setTimeout(removeMessage, 2000);
+
+            // viewport.setTimeout(removeChild(newMessage), 2000);
+
         }
+        
     };
 
     
