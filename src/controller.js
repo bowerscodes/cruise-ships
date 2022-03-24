@@ -60,10 +60,11 @@
             const currentPortName = ship.itinerary.ports[currentPortIndex].name;
 
             const nextPortIndex = currentPortIndex + 1;
+            const nextPortName = ship.itinerary.ports[currentPortIndex+1].name;
             const nextPortElement = document.querySelector(`[data-port-index='${nextPortIndex}']`);
             
             if (!nextPortElement) {
-                this.renderMessage('End of the Line!');
+                return alert('End of the Line!');
             }
 
             this.renderMessage(`Now departing ${currentPortName}`);
@@ -78,21 +79,22 @@
                 }
                 shipElement.style.left = `${shipLeft + 1}px`;
             }, 20);
-        }
+
+            setTimeout(() => {
+                this.renderMessage(`Now arriving at ${nextPortName}`);
+            }, 2500);
+        };
 
         renderMessage(message) {
             const newMessage = document.createElement('div');
             newMessage.id = 'message';
             newMessage.innerHTML = message;
 
-            const removeMessage = viewport.removeChild(newMessage);
-        
-            
-
             viewport.appendChild(newMessage);
-            setTimeout(removeMessage, 2000);
 
-            // viewport.setTimeout(removeChild(newMessage), 2000);
+            setTimeout(() => {
+                viewport.removeChild(newMessage);
+            }, 2500);
 
         }
         
