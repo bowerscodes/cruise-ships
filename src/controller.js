@@ -5,6 +5,7 @@
             this.ship = ship
 
             this.initialiseSea();
+            this.renderHUD();
 
             document.querySelector('#sailbutton').addEventListener('click', () => {
                 this.setSail();
@@ -20,8 +21,27 @@
                 document.querySelector('#viewport').style.backgroundImage = `url('${backgrounds[backgroundIndex % backgrounds.length]}')`;
                 backgroundIndex += 1;
             }, 1000);
-
         }
+
+        renderHUD() {
+            let currentPortHUD = document.createElement('div');
+            let currentPortIndex = ship.itinerary.ports.indexOf(ship.currentPort);
+            let currentPortName = ship.itinerary.ports[currentPortIndex].name;
+            currentPortHUD.id = "Current Port";
+            currentPortHUD.innerHTML = `Current Port: ${currentPortName}`;
+            
+            let nextPortHUD = document.createElement('div');
+            let nextPortIndex = currentPortIndex + 1;
+            let nextPortName = ship.itinerary.ports[nextPortIndex].name;
+            nextPortHUD.id = "Next Port";
+            nextPortHUD.innerHTML = `Next Port: ${nextPortName}`;  
+            
+            document.querySelector('#HUD').appendChild(currentPortHUD);
+            document.querySelector('#HUD').appendChild(nextPortHUD);
+        }
+        
+    
+
         renderPorts(ports) {
             const portsElement = document.querySelector('#ports');
             portsElement.style.width = '0px';
@@ -83,6 +103,8 @@
             setTimeout(() => {
                 this.renderMessage(`Now arriving at ${nextPortName}`);
             }, 2500);
+
+            this.renderHUD();
         };
 
         renderMessage(message) {

@@ -17,6 +17,17 @@ body {
     background: url('../images/water0.png');
 }
 
+#HUD {
+    width: 100%;
+    position: absolute;
+    font-family: 'Press Start 2P', cursive;
+    text-align: right;
+    color: white;
+    top: 5px;
+    padding-right: 10px;
+    line-height: 2rem;
+}
+
 #ports {
     margin-top: 96px;
     display: flex;
