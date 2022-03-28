@@ -24,20 +24,28 @@
         }
 
         renderHUD() {
-            let currentPortHUD = document.createElement('div');
+            const ship = this.ship;
             let currentPortIndex = ship.itinerary.ports.indexOf(ship.currentPort);
             let currentPortName = ship.itinerary.ports[currentPortIndex].name;
-            currentPortHUD.id = "Current Port";
+
+            let currentPortHUD = document.createElement('div');
+            currentPortHUD.id = "current-port";
             currentPortHUD.innerHTML = `Current Port: ${currentPortName}`;
-            
-            let nextPortHUD = document.createElement('div');
+
             let nextPortIndex = currentPortIndex + 1;
             let nextPortName = ship.itinerary.ports[nextPortIndex].name;
-            nextPortHUD.id = "Next Port";
+
+            let nextPortHUD = document.createElement('div');
+            nextPortHUD.id = "next-port";
             nextPortHUD.innerHTML = `Next Port: ${nextPortName}`;  
             
             document.querySelector('#HUD').appendChild(currentPortHUD);
             document.querySelector('#HUD').appendChild(nextPortHUD);
+        }
+
+        HUDReset() {
+            document.querySelector('#HUD').removeChild(currentPortHUD);
+            document.querySelector('#HUD').removeChild(nextPortHUD);
         }
         
     
@@ -104,6 +112,7 @@
                 this.renderMessage(`Now arriving at ${nextPortName}`);
             }, 2500);
 
+            this.HUDReset();
             this.renderHUD();
         };
 
